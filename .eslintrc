@@ -1,0 +1,6 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "unicorn/no-instanceof-array": "off"
+  }
+}

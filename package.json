@@ -2,22 +2,19 @@
   "name": "easy-modal",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "license": "MIT",
+  "keywords": [],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsup src/*.ts --jsx --format cjs,esm --dts --splitting --clean",
-    "dev": "tsup src/*.ts --watch src",
-    "play": "npm -C playground run dev",
-    "prepublishOnly": "nr build",
+    "build": "tsup src/index.ts --dts --format cjs,esm --splitting --clean",
+    "dev": "tsup src/index.ts --watch",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "test": "vitest"
-  },
-  "keywords": [],
-  "license": "MIT",
-  "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "tsup": "^5.12.9",
-    "typescript": "^4.7.2"
   },
   "peerDependencies": {
     "react": ">16.8.0",
@@ -26,5 +23,13 @@
   "dependencies": {
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.24.2",
+    "eslint": "^8.16.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsup": "^5.12.9",
+    "typescript": "^4.7.2"
   }
 }

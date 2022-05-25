@@ -1,1 +1,1 @@
-export * from "./EasyModal";
+export * from './EasyModal'

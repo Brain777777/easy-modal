@@ -1,16 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "module": "esnext",
-    "lib": ["esnext", "DOM"],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "jsx": "preserve",
-    "strictNullChecks": true,
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowJs": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true
+    "experimentalDecorators": true,
+    "strict": true,
+    "removeComments": true
   },
-  "exclude": ["dist", "playground", "cypress"]
+  "exclude": ["node_modules", "dist"]
 }

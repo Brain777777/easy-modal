@@ -1,23 +1,23 @@
-type Recordable<T = any> = Record<string, T>
+export type Recordable<T = any> = Record<string, T>
 
-type Mapable<T = any> = Map<string, T>
+export type Mapable<T = any> = Map<string, T>
 
 export interface ModalState {
   id: string
-  args?: Recordable<unknown>
+  args?: Recordable
   visible?: boolean
   delayVisible?: boolean
   keepMounted?: boolean
 }
 
-export type ModalStore = Mapable<ModalState>
+export type ModalStore = Recordable<ModalState>
 
 export interface ModalAction {
   type: string
   payload: {
     modalId: string
-    args?: Recordable<unknown>
-    flags?: Recordable<unknown>
+    args?: Recordable
+    flags?: Recordable
   }
 }
 
@@ -27,7 +27,7 @@ export type ModalCallbacks = Recordable<{
   promise: Promise<unknown>
 }>
 
-export interface ModalHandler<Props = Record<string, unknown>> {
+export interface ModalHandler<Props = Recordable> {
   visible: boolean
   keepMounted: boolean
   show: (args?: Props) => Promise<unknown>

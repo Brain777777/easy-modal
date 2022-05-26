@@ -13,7 +13,6 @@
   "tsup": {
     "entry": ["src/index.ts"],
     "splitting": true,
-    "sourcemap": true,
     "clean": true,
     "format":[
       "cjs",
@@ -24,6 +23,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "play":"npm -C playground run dev",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "test": "vitest"
   },

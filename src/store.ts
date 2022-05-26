@@ -1,34 +1,78 @@
-import type { ModalAction, ModalStore } from './interface'
+import type { ModalAction, ModalStore, Recordable } from './interface'
 
 export const reducer = (state: ModalStore, action: ModalAction): ModalStore => {
-  const { modalId, args, flags } = action.payload
+  const { id, args } = action.payload
 
   switch (action.type) {
     case 'open': {
       return {
-        [modalId]: {
-          id: modalId,
+        ...state,
+        [id]: {
+          ...state[id],
+          id,
+          args,
           visible: true,
           delayVisible: true,
         },
       }
     }
     case 'close': {
-      return {
+      if (!state[id])
+        return state
 
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          id,
+          visible: false,
+        },
       }
     }
     case 'remove': {
-      return {
-
-      }
+      const copyedState = { ...state }
+      delete copyedState[id]
+      return copyedState
     }
-    case 'set-flags': {
-      return {
-
-      }
-    }
+    // case 'set-flags': {
+    //   return {
+    //     ...state,
+    //     [id]: {
+    //       ...state[id],
+    //       ...flags,
+    //     },
+    //   }
+    // }
     default:
       return state
   }
 }
+
+export const opne = (id: string, args?: Recordable): ModalAction => {
+  return {
+    type: 'open',
+    payload: {
+      id,
+      args,
+    },
+  }
+}
+
+export const close = (id: string): ModalAction => {
+  return {
+    type: 'close',
+    payload: {
+      id,
+    },
+  }
+}
+
+export const remove = (id: string): ModalAction => {
+  return {
+    type: 'remove',
+    payload: {
+      id,
+    },
+  }
+}
+

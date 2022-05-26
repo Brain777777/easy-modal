@@ -10,9 +10,20 @@
   "files": [
     "dist"
   ],
+  "tsup": {
+    "entry": ["src/index.ts"],
+    "splitting": true,
+    "sourcemap": true,
+    "clean": true,
+    "format":[
+      "cjs",
+      "esm"
+    ],
+    "dts":true
+  },
   "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm --splitting --clean",
-    "dev": "tsup src/index.ts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "test": "vitest"
   },

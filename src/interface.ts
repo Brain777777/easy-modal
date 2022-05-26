@@ -15,7 +15,7 @@ export type ModalStore = Recordable<ModalState>
 export interface ModalAction {
   type: string
   payload: {
-    modalId: string
+    id: string
     args?: Recordable
     flags?: Recordable
   }
